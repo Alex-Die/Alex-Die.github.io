@@ -73,6 +73,9 @@ transition: color 0.5s;
 }
 .welcome-text{
     display: block;
+
+
+    
     margin-left: auto;
     margin-right: auto;
     font-family: Arial;
