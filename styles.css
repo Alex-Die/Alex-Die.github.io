@@ -65,17 +65,14 @@ transition: color 0.5s;
 /* home */
 .welcome {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 200px;
+    text-align: center;
+    margin: 100px;
     
   
 }
 .welcome-text{
     display: block;
 
-
-    
     margin-left: auto;
     margin-right: auto;
     font-family: Arial;
@@ -88,7 +85,8 @@ transition: color 0.5s;
 
 
 /* portfolio */
-
+/* portfolio */
+/* portfolio */
 .portfolio-items-wrapper{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -144,9 +142,20 @@ color: white;
 .img-text-wrapper:hover .subtitle{
     font-weight: 600;
     color:yellow;
+    
 }
 .img-text-wrapper:hover .subtitle a{
     font-weight: 600;
     text-decoration: none;
     color:yellow;
+    background-color: red;
+}
+
+/* about */
+.about{
+    text-align: center;
+}
+.resize {
+    height: 200px;
+    width: 200px;
 }

@@ -1,0 +1,60 @@
+.headline {  
+    text-align: center;  
+    padding: 20px;  
+    background-color: rgb(11, 78, 105);  
+    color: white;  
+    }  
+.calcname {
+    text-align: center;
+    padding: px;
+    color: grey;
+}
+#clear{  
+width: 135px;  
+border: px solid gray;  
+    border-radius: 3px;  
+    padding: 20px;  
+    background-color: red;  
+}  
+
+#equal{
+    width: 135px;  
+    border: px solid gray;  
+        border-radius: 3px;  
+        padding: 20px;  
+        background-color: purple;  
+}
+  
+.formstyle  
+{  
+width: 300px;  
+height: 640px;  
+margin: auto;  
+background-color: gray;
+border: 3px solid skyblue;  
+border-radius: 5px;  
+padding: 15px;  
+}  
+  
+  
+  
+input  
+{  
+width: 20px;  
+background-color: rgb(7, 7, 81);  
+color: white;  
+border: 3px solid gray;  
+    border-radius: 5px;  
+    padding: 26px;  
+    margin: 5px;  
+    font-size: 15px;  
+}  
+  
+  
+#calc{  
+width: 250px;  
+border: 5px solid black;  
+    border-radius: 3px;  
+    padding: 20px;  
+    margin: auto;  
+}  
