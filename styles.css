@@ -1,10 +1,7 @@
 /*Master styles*/
-body{
-    margin: 0px;
-}
 
 
-.container{
+.navcontainer{
     display: grid;
     grid-template-columns: 1fr;
 }
@@ -23,8 +20,10 @@ body{
 
 .middle{
     color: white;
-    text-transform: uppercase;}
-
+    text-transform: uppercase;
+    
+}
+    
 
 
 .right-side {
@@ -151,10 +150,7 @@ color: white;
     background-color: red;
 }
 
-/* about */
-.about{
-    text-align: center;
-}
+
 .resize {
     height: 200px;
     width: 200px;
