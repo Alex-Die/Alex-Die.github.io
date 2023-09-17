@@ -39,8 +39,6 @@ for(var c=0; c<brickColumnCount; c++){
     }
 }
 
-
-
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 document.addEventListener("mousemove", mouseMoveHandler, false);
@@ -91,7 +89,6 @@ function collisionDetection(){
             }
             }
 }
-
 }
 
 }
@@ -121,8 +118,6 @@ ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
 ctx.fillStyle = "#0095DD";
 ctx.fill();
 ctx.closePath();}
-
-
 
 function drawBricks(){
     for(var c=0; c < brickColumnCount; c++){
@@ -192,12 +187,9 @@ else if (leftPressed){
     }
 }
 
-
-
 x += dx;
 y += dy;
 requestAnimationFrame(draw);
 }
-
 
 draw();
