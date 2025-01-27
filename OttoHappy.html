@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Input Action</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            height: 100vh;
+            overflow-y: scroll; /* Allows scrolling */
+            background-color: #f0f0f0;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            width: 200px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .output {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+        img {
+            display: none;
+            position: absolute;
+            width: 100px; /* Size of the image */
+            height: 100px;
+        }
+        .scroll-content {
+            margin-top: 400px; /* Start the content far enough down to allow scrolling */
+            padding: 20px;
+            font-size: 18px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            max-width: 80%;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kannst du Otto wieder Glücklich machen?</h1>
+    <h2>Schreibe die 5 Lösungswörter in die Eingabefelder!</h2>
+    
+    <div>
+        <input type="text" id="input1" placeholder="Erste Eingabe">
+        <input type="text" id="input2" placeholder="Zweite Eingabe">
+        <input type="text" id="input3" placeholder="Dritte Eingabe">
+        <input type="text" id="input4" placeholder="Vierte Eingabe">
+        <input type="text" id="input5" placeholder="Fünfte Eingabe">
+    </div>
+    
+    <button onclick="checkInputs()">Submit</button>
+    
+    <div class="output" id="output"></div>
+    
+    <img id="image" src="images\OttoHappy.jpg" alt="OttoIstHappy">
+
+    <div class="scroll-content">
+        <h2>Die 5 Grundbausteine der Kreativität</h2>
+        <p>Kreatives denken und Kritische denken stehen sehr nah beieinander</p>
+        <p>Kreativität ist ein Zusammenspiel aus vielen Faktoren. Inspiration ist der Funke, der Ideen entzündet, während Neugier uns antreibt, neue Wege zu erkunden. Doch ohne Wissen als Fundament bleiben viele Ideen nur Träume. Kritik hilft uns, unsere Gedanken zu schärfen und zu verbessern – auch wenn sie manchmal schwer anzunehmen ist. Schließlich brauchen wir Ruhe, um Gedanken reifen zu lassen und neue Verbindungen zu entdecken. Kreativität lebt von Balance: zwischen Denken und Tun, Chaos und Struktur, Offenheit und Fokus.
+        
+        <p>bleib Kreativ </p>
+    </div>
+
+    <script>
+        let movingImage = document.getElementById('image');
+        let isImageVisible = false;
+
+        // Correct answers
+        const correctAnswers = ['ruhe','wissen','inspiration','neugier', 'mut'];
+
+        function checkInputs() {
+            const inputs = [
+                document.getElementById('input1').value.trim().toLowerCase(),
+                document.getElementById('input2').value.trim().toLowerCase(),
+                document.getElementById('input3').value.trim().toLowerCase(),
+                document.getElementById('input4').value.trim().toLowerCase(),
+                document.getElementById('input5').value.trim().toLowerCase()
+            ];
+            
+            let allCorrect = true;
+            const outputDiv = document.getElementById('output');
+            
+            // Check if all inputs are correct
+            for (let i = 0; i < 5; i++) {
+                if (inputs[i] !== correctAnswers[i]) {
+                    allCorrect = false;
+                    outputDiv.textContent = `Input ${i + 1} is incorrect. Please try again!`;
+                    outputDiv.style.color = "red";
+                    break;
+                }
+            }
+            
+            if (allCorrect) {
+                outputDiv.textContent = "Alle Eingaben sind richtig. Otto ist wieder glücklich. Du konntest mit deinem kreativen und kritischen Denken Otto dabei helfen wieder Kreativ zu sein:) Legende";
+                outputDiv.style.color = "green";
+                startMovingImage();
+            } else {
+                outputDiv.textContent = "Bitte gebe die richtigen Wörter ein. Achte dabei auf die richtige Reihenfolge!";
+                document.getElementById('image').style.display = 'none';  // Hide image if inputs are incorrect
+            }
+        }
+
+        // Start moving the image across the screen
+        function startMovingImage() {
+            if (!isImageVisible) {
+                movingImage.style.display = 'block';  // Show the image
+                isImageVisible = true;
+            }
+
+            let posX = Math.random() * window.innerWidth;  // Random X position
+            let posY = Math.random() * window.innerHeight; // Random Y position
+            let speedX = 2 + Math.random() * 4;  // Speed of movement on X axis
+            let speedY = 2 + Math.random() * 4;  // Speed of movement on Y axis
+
+            function move() {
+                // Update the position of the image
+                posX += speedX;
+                posY += speedY;
+
+                // If the image hits the edge of the screen, reverse the direction
+                if (posX + movingImage.width > window.innerWidth || posX < 0) {
+                    speedX = -speedX;
+                }
+                if (posY + movingImage.height > window.innerHeight || posY < 0) {
+                    speedY = -speedY;
+                }
+
+                movingImage.style.left = `${posX}px`;
+                movingImage.style.top = `${posY}px`;
+
+                // Call move function repeatedly to animate
+                requestAnimationFrame(move);
+            }
+
+            move();  // Start the movement
+        }
+    </script>
+</body>
+</html>
